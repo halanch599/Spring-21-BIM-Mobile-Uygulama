@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Android Learning</string>
+    <string name="tvTitle">Welcome to Android</string>
+    <string name="etUserName_hint">Enter User Name</string>
+    <string name="etPassword_hint">Enter Password</string>
+    <string name="btnLogin">Log In</string>
+    <string name="btnClear">Clear</string>
+
+</resources>
