@@ -6,15 +6,27 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
+    Button tbRegister;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        tbRegister =  findViewById(R.id.btnRegister);
+
+        tbRegister.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                   Intent intent = new Intent(MainActivity.this,ActivityRegister.class);
+                   startActivity(intent);
+            }
+        });
     }
 
     public void Login(View v)
