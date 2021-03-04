@@ -13,4 +13,13 @@
     <string name="email">Email</string>
     <string name="re_enter_password">Re-enter Password</string>
 
+    <string-array name="country">
+        <item>Select Country</item>
+        <item>Turkey</item>
+        <item>Germany</item>
+        <item>Spain</item>
+        <item>Itlay</item>
+        <item>Romania</item>
+    </string-array>
+
 </resources>
