@@ -2,6 +2,7 @@ package com.example.bim_1_1;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
@@ -25,7 +26,7 @@ public class ActivityRegister extends AppCompatActivity {
     RadioGroup rgGender;
     RadioButton rbMale, rbFemale;
     Spinner spinnerCountry;
-    Button btnRegister, btnClear;
+    Button btnRegister, btnClear, btnBack;
     TextView tvMessage;
     DBUser db;
 
@@ -165,6 +166,11 @@ public class ActivityRegister extends AppCompatActivity {
 
     }
 
+    // practice 3. Implement this method
+    private void clearComponents()
+    {
+        // add code to clear all components
+    }
     private void LoadComponents()
     {
         etName =  (EditText) findViewById(R.id.etName);
@@ -179,9 +185,18 @@ public class ActivityRegister extends AppCompatActivity {
         rbMale = findViewById(R.id.rbMale);
         rbFemale =  findViewById(R.id.rbFemale);
 
-        btnRegister = findViewById(R.id.btnRegister);
-        btnClear = findViewById(R.id.btnClear);
+        btnRegister = (Button) findViewById(R.id.btnRegister);
+        btnClear = (Button)findViewById(R.id.btnClear);
+        btnBack =  (Button)findViewById(R.id.btnBack);
 
+
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ActivityRegister.this,MainActivity.class);
+                startActivity(intent);
+            }
+        });
         tvMessage =  findViewById(R.id.tvMessageRegister);
 
         spinnerCountry = findViewById(R.id.spinnerCountry);

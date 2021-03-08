@@ -6,6 +6,7 @@
     <string name="btnLogin">Log In</string>
     <string name="btnClear">Clear</string>
     <string name="btnRegister">Register</string>
+    <string name="btnBack">Back</string>
     <string name="rbfemale">Female</string>
     <string name="rbmale">Male</string>
     <string name="cb24hours">24/7 Hours</string>

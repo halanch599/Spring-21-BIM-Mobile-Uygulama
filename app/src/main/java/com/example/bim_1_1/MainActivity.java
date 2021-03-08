@@ -10,6 +10,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import com.example.bim_1_1.model.DBUser;
+
 public class MainActivity extends AppCompatActivity {
 
     Button tbRegister;
@@ -55,8 +57,11 @@ public class MainActivity extends AppCompatActivity {
             return;
         }
 
+
+
         // database
-        if (username.equals("admin") && password.equals("12345"))
+        //if (username.equals("admin") && password.equals("12345"))
+        if (DBUser.Login(username,password))
         {
 //            tvMessage.setText("Welcome to Android..");
 //            tvMessage.setVisibility(View.VISIBLE);

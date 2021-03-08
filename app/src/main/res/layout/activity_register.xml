@@ -196,6 +196,20 @@
             android:text="@string/btnClear"
             android:textColor="@color/white"
             android:textSize="18sp" />
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@drawable/btn_bg"
+            android:text="@string/btnBack"
+            android:textColor="@color/white"
+            android:textSize="18sp" />
     </LinearLayout>
+
+
 
 </LinearLayout>

@@ -15,8 +15,33 @@ public class DBUser {
         return 1;
     }
 
+    //Practice 1. show the list in a spinner in Home activity
     public ArrayList<User> GetAllUsers()
     {
+
         return UserList;
     }
+
+    // from spinner user will select a name and click Delete
+    public boolean deleteUser(String name){
+        return true;
+    }
+
+
+    public static boolean Login(String email,String password)
+    {
+        boolean result=false;
+
+        if (UserList!=null) {
+            for (User user : UserList) {
+                if (user.getEmail().toLowerCase().equals( email.toLowerCase()) && user.getPassword().equals(password)) {
+                    result = true;
+                    break;
+                }
+            }
+        }
+
+        return result;
+    }
+
 }
