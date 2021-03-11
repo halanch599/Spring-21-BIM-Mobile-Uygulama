@@ -22,7 +22,7 @@ public class DBUser {
         return UserList;
     }
 
-    // from spinner user will select a name and click Delete
+    //3. from spinner user will select a name and click Delete
     public boolean deleteUser(String name){
         return true;
     }
