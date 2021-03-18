@@ -5,11 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class ActivityCalculator extends AppCompatActivity {
 
-    Button btn0,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btnplus, btnminus,btndivide,btnmmultiply,btnc,btnce,btnback,btnplusminus,btndot,btnequal;
+    Button btn0,btn1,btn2,btn3,btn4,btn5,btn6,btn7,btn8,btn9,btnplus, btnminus,btndivide,btnmmultiply,btnc,btnce,btnplusminus,btndot,btnequal;
+    ImageButton btnback;
     TextView tvhistory, tvresult;
 
     String text = null;
@@ -142,6 +144,10 @@ public class ActivityCalculator extends AppCompatActivity {
                 text=null;
                 tvresult.setText("");
                 tvhistory.setText("");
+                status = null;
+                num1=0;
+                num2= 0;
+
             }
         });
 
@@ -162,6 +168,160 @@ public class ActivityCalculator extends AppCompatActivity {
                         tvresult.setText("0");
                     }
                 }
+            }
+        });
+
+        btndivide.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                history = tvhistory.getText().toString();
+                currentResult =  tvresult.getText().toString();
+                tvhistory.setText(history + currentResult + "/");
+
+                if(operator)
+                {
+                    if(status == "plus")
+                    {
+                        plus();
+                    }
+                    else if(status=="minus")
+                    {
+                        minus();
+                    }
+                    else if(status=="multiply")
+                    {
+                        multiply();
+                    }
+                    else{
+                        divide();
+                    }
+                }
+                status ="divide";
+                operator = false;
+                text =  null;
+            }
+        });
+
+        btnmmultiply.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                history = tvhistory.getText().toString();
+                currentResult =  tvresult.getText().toString();
+                tvhistory.setText(history + currentResult + "x");
+
+                if(operator)
+                {
+                    if(status == "plus")
+                    {
+                        plus();
+                    }
+                    else if(status=="minus")
+                    {
+                        minus();
+                    }
+                    else if(status=="divide")
+                    {
+                        divide();
+                    }
+                    else{
+                        multiply();
+                    }
+                }
+                status ="multiply";
+                operator = false;
+                text =  null;
+            }
+        });
+
+        btnplus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                history = tvhistory.getText().toString();
+                currentResult =  tvresult.getText().toString();
+                tvhistory.setText(history + currentResult + "+");
+
+                if(operator)
+                {
+                    if(status == "divide")
+                    {
+                        divide();
+                    }
+                    else if(status=="minus")
+                    {
+                        minus();
+                    }
+                    else if(status=="multiply")
+                    {
+                        multiply();
+                    }
+                    else{
+                        plus();
+                    }
+                }
+                status ="plus";
+                operator = false;
+                text =  null;
+            }
+        });
+
+        btnminus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                history = tvhistory.getText().toString();
+                currentResult =  tvresult.getText().toString();
+                tvhistory.setText(history + currentResult + "-");
+
+                if(operator)
+                {
+                    if(status == "plus")
+                    {
+                        plus();
+                    }
+                    else if(status=="divide")
+                    {
+
+                        divide();
+                    }
+                    else if(status=="multiply")
+                    {
+                        multiply();
+                    }
+                    else{
+                        minus();
+                    }
+                }
+                status ="minus";
+                operator = false;
+                text =  null;
+            }
+        });
+
+        btnequal.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                history = tvhistory.getText().toString();
+                currentResult =  tvresult.getText().toString();
+                tvhistory.setText(history + currentResult);
+                if(operator)
+                {
+                    if(status == "plus")
+                    {
+                        plus();
+                    }
+                    else if(status=="divide")
+                    {
+                        divide();
+                    }
+                    else if(status=="multiply")
+                    {
+                        multiply();
+                    }
+                    else if(status=="minus")
+                    {
+                        minus();
+                    }
+                }
+                operator = false;
             }
         });
 
@@ -187,6 +347,7 @@ public class ActivityCalculator extends AppCompatActivity {
             }
         }
 
+        operator =  true;
         tvresult.setText(text);
     }
 
@@ -206,6 +367,11 @@ public class ActivityCalculator extends AppCompatActivity {
 
     private  void multiply()
     {
+        if(num1==0)
+        {
+            num1 = 1;
+        }
+
         num2 = Double.parseDouble(tvresult.getText().toString());
         num1 *= num2;
         tvresult.setText(""+num1);
@@ -213,15 +379,17 @@ public class ActivityCalculator extends AppCompatActivity {
 
     private  void divide()
     {
-        num2 = Double.parseDouble(tvresult.getText().toString());
-        if (num2==0)
+        if(num1==0)
         {
-            tvresult.setText("");
+            num2 = Double.parseDouble(tvresult.getText().toString());
+            num1 = num2/1;
         }
-        else   {
+        else
+        {
+            num2 = Double.parseDouble(tvresult.getText().toString());
             num1 /= num2;
-            tvresult.setText(""+num1);
         }
+        tvresult.setText(""+num1);
 
     }
 }
