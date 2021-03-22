@@ -36,6 +36,7 @@
     <string name="btnc">C</string>
     <string name="btnback">Back</string>
 
+    <string name="btnProductAdd">Add</string>
 
     <string-array name="country">
         <item>Select Country</item>
