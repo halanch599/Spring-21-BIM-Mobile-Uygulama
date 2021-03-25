@@ -4,6 +4,9 @@ public class Product {
     String Name;
     float Price;
     int Image;
+    int Quantity;
+    String Category;
+    String Description;
 
     public Product(String name, float price, int image) {
         Name = name;
