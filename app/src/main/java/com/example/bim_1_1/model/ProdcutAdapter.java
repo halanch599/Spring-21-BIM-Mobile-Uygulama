@@ -15,6 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.example.bim_1_1.ProductCustomListViewActivity;
 import com.example.bim_1_1.R;
 
 import java.util.List;
@@ -46,8 +47,10 @@ public class ProdcutAdapter extends ArrayAdapter<Product> {
         TextView tvProductName = (TextView) view.findViewById(R.id.tvProductName);
         TextView tvProductPrice = (TextView) view.findViewById(R.id.tvProductPrice);
         Button btnAdd = (Button) view.findViewById(R.id.btnAdd);
+        Button btnDetails = (Button) view.findViewById(R.id.btnDetail);
 
         Product product = productList.get(position);
+
         ivImage.setImageDrawable(context.getResources().getDrawable(product.getImage(),null));
         tvProductName.setText(product.getName());
         tvProductPrice.setText(String.valueOf(product.getPrice()));
@@ -55,6 +58,12 @@ public class ProdcutAdapter extends ArrayAdapter<Product> {
         btnAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (product.getQuantity()>0){
+                Toast.makeText(context, "You added one product to basket", Toast.LENGTH_SHORT).show();
+                ProductCustomListViewActivity.basket.add(product);
+                //productList.
+                }
+
                 //Toast.makeText(context, "Indirim Yok!", Toast.LENGTH_LONG).show();
 
                 AlertDialog.Builder builder = new AlertDialog.Builder(context);
@@ -63,16 +72,16 @@ public class ProdcutAdapter extends ArrayAdapter<Product> {
                 builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
-                        Toast.makeText(context, "You added one product", Toast.LENGTH_SHORT).show();
+
                     }
                 });
 
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-                        Toast.makeText(context, "Oh NOOOOO", Toast.LENGTH_SHORT).show();
-                    }
-                });
+//                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface dialogInterface, int i) {
+//                        Toast.makeText(context, "Oh NOOOOO", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
 
                 AlertDialog dialog = builder.create();
                 dialog.show();
@@ -80,6 +89,14 @@ public class ProdcutAdapter extends ArrayAdapter<Product> {
             }
         });
 
+        btnDetails.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+//        if(product.getQuantity()==0)
+//             view.setVisibility(View.GONE);
         return view;
     }
 }

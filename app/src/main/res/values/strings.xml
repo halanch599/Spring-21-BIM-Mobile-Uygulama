@@ -37,7 +37,7 @@
     <string name="btnback">Back</string>
 
     <string name="btnProductAdd">Add</string>
-
+    <string name="btnDetail">Details</string>
     <string-array name="country">
         <item>Select Country</item>
         <item>Turkey</item>
