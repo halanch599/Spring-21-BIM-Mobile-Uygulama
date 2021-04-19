@@ -9,31 +9,26 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.BIM_1_1">
+        <activity android:name=".SharedPreferrencesActivity">
+
+        </activity>
         <activity android:name=".model.NavigationActivity">
+
+        </activity>
+        <activity android:name=".TabbedActivity"></activity>
+        <activity android:name=".RecyclerActivity"></activity>
+        <activity android:name=".ProductCustomListViewActivity"></activity>
+        <activity android:name=".YemekActivity"></activity>
+        <activity android:name=".ActivityCalculator"></activity>
+        <activity android:name=".ActivityRegister" />
+        <activity android:name=".HomeActivity" />
+        <activity android:name=".MainActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".TabbedActivity">
-
-        </activity>
-        <activity android:name=".RecyclerActivity">
-
-        </activity>
-        <activity android:name=".ProductCustomListViewActivity">
-
-        </activity>
-        <activity android:name=".YemekActivity">
-
-        </activity>
-        <activity android:name=".ActivityCalculator">
-
-        </activity>
-        <activity android:name=".ActivityRegister" />
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>
