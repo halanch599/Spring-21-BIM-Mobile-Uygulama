@@ -2,6 +2,7 @@ package com.example.bim_1_1.model;
 
 import java.util.ArrayList;
 
+
 public class DBUser {
     private static ArrayList<User> UserList;
 
