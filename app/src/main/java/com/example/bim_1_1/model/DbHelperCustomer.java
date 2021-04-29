@@ -67,6 +67,26 @@ public class DbHelperCustomer extends SQLiteOpenHelper {
         }
     }
 
+    public long CustomerAdd(String fname, String lname){
+        SQLiteDatabase db = this.getWritableDatabase();
+        try{
+
+            ContentValues cv = new ContentValues();
+            cv.put(COLUMN_FIRSTNAME,fname);
+            cv.put(COLUMN_LASTNAME,lname);
+
+            return db.insert(TABLE_NAME,null,cv);
+
+        }
+        catch (Exception ex)
+        {
+            return  -1;
+        }
+        finally {
+            db.close();
+        }
+    }
+
     public ArrayList<Customer> CustomerGetAll(){
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor=null;
