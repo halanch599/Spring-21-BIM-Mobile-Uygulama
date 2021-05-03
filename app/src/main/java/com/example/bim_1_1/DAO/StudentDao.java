@@ -1,5 +1,6 @@
 package com.example.bim_1_1.DAO;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -25,12 +26,12 @@ public interface StudentDao {
     @Update
     void UpdateStudent(Student student);
 
-    @Query("SELECT * FROM STUDENT")
-    List<Student> getAllStudents();
+    @Query("SELECT * FROM STUDENT Order BY First_Name")
+    LiveData<List<Student>> getAllStudents();
 
     @Query("SELECT * FROM STUDENT WHERE StudnetID = :Id")
-    List<Student> FindStudentById(int Id);
+    LiveData<List<Student>> FindStudentById(int Id);
 
     @Query("SELECT * FROM STUDENT WHERE First_Name LIKE :name OR Last_Name LIKE :name")
-    List<Student> FindStudentByName(String name);
+    LiveData<List<Student>> FindStudentByName(String name);
 }

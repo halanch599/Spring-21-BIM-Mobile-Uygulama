@@ -1,5 +1,6 @@
 package com.example.bim_1_1.DAO;
 
+import androidx.lifecycle.LiveData;
 import androidx.room.Delete;
 import androidx.room.Insert;
 import androidx.room.Query;
@@ -13,25 +14,17 @@ import java.util.List;
 public interface DepartmentDao {
     @Insert
     void Insert(Department  department);
-
-    @Insert
-    void InsertDepartments(Department... department);
-
     @Delete
-    void DeleteDepartment(Department student);
-
-    @Delete
-    void DeleteDepartments(Department... students);
-
+    void Delete(Department department);
     @Update
-    void UpdateDepartment(Department student);
+    void Update(Department student);
 
     @Query("SELECT * FROM Department")
-    List<Student> getAllDepartments();
+    LiveData<List<Department>> getAllDepartments();
 
     @Query("SELECT * FROM Department WHERE DepartmentID = :Id")
-    List<Student> FindDepartmentById(int Id);
+    LiveData<List<Department>> FindDepartmentById(int Id);
 
     @Query("SELECT * FROM Department WHERE Name LIKE :name")
-    List<Student> FindDepartmentByName(String name);
+    LiveData<List<Department>> FindDepartmentByName(String name);
 }
