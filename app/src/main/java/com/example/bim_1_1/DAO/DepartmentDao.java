@@ -17,7 +17,7 @@ public interface DepartmentDao {
     @Delete
     void Delete(Department department);
     @Update
-    void Update(Department student);
+    void Update(Department department);
 
     @Query("SELECT * FROM Department")
     LiveData<List<Department>> getAllDepartments();
